@@ -11,20 +11,9 @@ A minimal viable example of using docker-compose to setup flask and mysql for a 
   Here is an example of how to configure and run docker, flask, and MySQL.
 
 
-## Explanation of directories and files
+## To run
 
- * `databaseData/`	A directory on the host machine that persists database data between docker container instantiations
- * `secrets/`	Files containing database passwords
- * `webserver/`	Code for the flask webserver
-   * `Dockerfile`	Docker sub-configuration for the webserver
-   * `main.py`	Main python entry point
-   * `static`	Files served as-is
-   * `templates`	Files served with variable substitutions and other template logic
- * `docker-compose.yml`	The main docker configuration file
-
-
-## To run:
-
+ * Install docker
  * `mkdir database_data`
  * `docker compose up --build`
 
@@ -39,7 +28,21 @@ A minimal viable example of using docker-compose to setup flask and mysql for a 
   and then updates the database with each webpage served.
 
 
-## To do next:
+## Explanation of directories and files
+
+| File | Description |
+| --- | --- |
+| `databaseData/`	 |  A directory on the host machine that persists database data between docker container instantiations |
+| `secrets/`	|  Files containing database passwords |
+| `webserver/`	|  Code for the flask webserver |
+| &nbsp; &nbsp; &nbsp; `Dockerfile`	|  Docker sub-configuration for the webserver |
+| &nbsp; &nbsp; &nbsp; `main.py`	 |  Main python entry point |
+| &nbsp; &nbsp; &nbsp; `static`	|  Files served as-is |
+| &nbsp; &nbsp; &nbsp; `templates`	 |  Files served with variable substitutions and other template logic |
+| `docker-compose.yml`	|  The main docker configuration file |
+
+
+## To do next
 
  * Modify the passwords in your `secrets/` files.
  * Modify the python code in `webserver/main.py` to create your database schema, website content, and business logic.
