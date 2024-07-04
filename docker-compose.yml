@@ -1,0 +1,48 @@
+
+services:
+    webserver:
+        container_name: example-webserver
+        build: webserver   # Import Dockerfile in this directory
+        restart: always
+        ports:
+            - '5000:5000'
+        volumes:
+            - ./webserver:/webserver   # Mount code from host for quick updates
+        networks:
+            - backend_network
+        secrets:
+          - database_password
+
+    database:
+        container_name: example-database
+        image: mysql:8.4
+        restart: always
+        environment:  # Auto-create database and user per https://hub.docker.com/_/mysql
+            MYSQL_ROOT_PASSWORD_FILE: /run/secrets/database_password_root
+            MYSQL_DATABASE: my_web_app
+            MYSQL_USER: my_web_app_user
+            MYSQL_PASSWORD_FILE: /run/secrets/database_password
+        expose:
+            - '3306:3306'
+        volumes:
+            - ./database_data:/var/lib/mysql   # Mount data from host for persistence
+        networks:
+            - backend_network
+        secrets:
+            - database_password
+            - database_password_root
+
+networks:
+    backend_network:
+
+volumes:
+    database_data:
+    webserver:
+
+secrets:
+    database_password:
+        file: ./secrets/database_password.txt
+    database_password_root:
+        file: ./secrets/database_password_root.txt
+
+
