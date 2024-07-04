@@ -7,8 +7,10 @@ A minimal viable example of using docker-compose to setup flask and mysql for a 
   Suppose you want to create a simple, web application, using python and a local database.
   You could set up your own web server on a dedicated Linux machine, but the system administration can be a burden.
   You could use a virtual machine to reduce some of that burden and cost, but installing and configuring services is still quite a bit of work.
-  Instead, a docker virtual file system can setup the services for you, and it is very resource-efficient.
+  Instead, a docker virtual file system can setup the services for you, and it is resource-efficient.
+
   Here is an example of how to configure and run docker, flask, and MySQL.
+  There are some similar examples on github, but this example is newer (2024), uses up-to-date versions of mysql and flask, and demonstrates more current methods for passing passwords, isolating networks, and initializing mysql.
 
 
 ## To run
