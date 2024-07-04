@@ -15,7 +15,8 @@ A minimal viable example of using docker-compose to setup flask and mysql for a 
 
 ## To run
 
- * Install docker
+ * Install docker.
+ * Checkout this code, and open a shell in the checkout directory.
  * `mkdir database_data`
  * `docker compose up --build`
 
